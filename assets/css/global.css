@@ -13,10 +13,10 @@ input, button, textarea, select { font: inherit }
 
 body {
     text-align: center;
-    font-family: Times New Roman, Times, serif;;
+    font-family: sans-serif;
 }
 
-body {  background-image: url('assets/img/blacksea.jpg'); }
+body { background-color: black; }
 
 
 h1 {
@@ -49,4 +49,3 @@ p {
     font-size: 20px;
     margin-bottom: 16px;
 }
-
