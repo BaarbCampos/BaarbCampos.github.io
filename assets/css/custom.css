@@ -49,3 +49,12 @@ header .col-text h2, .col-1 > h3 { line-height: 1.8 }
   font-weight: 900;
   font-style: italic;
 }
+
+
+
+h1,h2{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
