@@ -148,43 +148,47 @@
 
     </main>
 
-    <script>
-        async function fetchRandomNumQuotes() {
-    try {
-        // Tente primeiro a API do Quotable
-        let response = await fetch('https://api.quotable.io/quotes?limit=15');
 
-        // Se der erro ou status diferente de 200, tenta a segunda API
-        if (!response.ok) {
-            console.log("Trying ZenQuotes as fallback...");
-            response = await fetch('https://zenquotes.io/api/quotes');
+   <script>
+    // Quando o botão com ID "btn-quotes" for clicado, executa a função abaixo
+    document.getElementById("btn-quotes").addEventListener("click", fetchRandomNumQuotes);
+
+    // Função assíncrona que busca e exibe 15 citações
+    async function fetchRandomNumQuotes() {
+        try {
+            // Faz a requisição para a API do Quotable
+            const response = await fetch('https://api.quotable.io/quotes?limit=15');
+
+            if (!response.ok) {
+                console.log('Erro ao buscar as citações. Código: ' + response.status);
+                return;
+            }
+
+            const data = await response.json(); // converte para JSON
+
+            let html_block = "";
+
+            // Loop pelas citações (máximo 15)
+            for (let i = 0; i < data.results.length; i++) {
+                const quote = data.results[i];
+                const text = quote.content;
+                const author = quote.author || "Anonymous";
+
+                html_block += `
+                    <div class="col-3">
+                        <p><span>“</span>${text}<span>”</span></p>
+                        <h3>${author}</h3>
+                    </div>`;
+            }
+
+            // Insere o HTML gerado no elemento com ID "quotes-box"
+            document.getElementById("quotes-box").innerHTML = html_block;
+
+        } catch (error) {
+            console.log('Erro ao buscar as citações:', error);
         }
-
-        if (!response.ok) {
-            console.log('Both APIs failed. Status: ' + response.status);
-            return;
-        }
-
-        const data = await response.json();
-        let html_block = "";
-
-        // Detecta qual API foi usada, porque os campos mudam
-        const quotes = data.results || data;
-
-        for (let i = 0; i < quotes.length && i < 15; i++) {
-            const quoteText = quotes[i].content || quotes[i].q || "No quote";
-            const author = quotes[i].author || quotes[i].a || "Anonymous";
-            html_block += `<div class="col-3"><p><span>“</span>${quoteText}<span>”</span></p><h3>${author}</h3></div>`;
-        }
-
-        document.getElementById("quotes-box").innerHTML = html_block;
-
-    } catch (error) {
-        console.log('Error fetching quotes:', error);
     }
-}
-
-    </script>
+</script>
     
 
     <!-- footer -->
