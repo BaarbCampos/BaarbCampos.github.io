@@ -18,10 +18,12 @@
 
     <style>
 
-        /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: #f7df1e }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+         /* ============ Header Colours =============*/
+         header.hero-block-js   { background-color: var(--slate-900);}
+        header.hero-block-js h1 { color: #fff }
+        header.hero-block-js h1 span { color: var(--gray-200) !important }
+        header.hero-block-js h2 { color: var(--gray-100) !important }
+        header.hero-block-js h2  a { color: var(--yellow-500) !important }
 
         /* Main Colours */
         .theme-js {
@@ -50,7 +52,13 @@
 
         .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) }
         .theme-js a.btn:hover { filter: brightness(140%) saturate(140%) }
-
+        nav a img { width: 50px; height: auto; margin: 0 auto; display: block; }
+        .container-menu a:first-child img {
+            width: 50px;
+            height: 40px;
+            outline: 0;
+        }
+        .container-menu.menu-desktop.menu-sticky {background-color: #888e9c}
     </style>
 
 	<!-- Font Awesome 6.1 icons -->

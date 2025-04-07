@@ -2361,5 +2361,50 @@ footer p.privacy a:hover, footer p.privacy a:active {
     overscroll-behavior-y: contain
 }
 
+nav.theme-dark, nav.theme-dark ul.links-wrapper.active {
+    background-color: #888e9c !important;
+}
+.container-menu.menu-desktop.menu-sticky {background-color: #888e9c}
 
+header.hero-block-js   { background-color: var(--slate-900);}
+header.hero-block-js h1 { color: #fff }
+header.hero-block-js h1 span { color: var(--gray-200) !important }
+header.hero-block-js h2 { color: var(--gray-100) !important }
+header.hero-block-js h2  a { color: var(--yellow-500) !important }
 
+element.style {
+}
+body {
+    font-family: var(--global-font);
+}
+@media (min-width: 768px) {
+    body {
+        text-rendering: optimizeLegibility;
+    }
+}
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+user agent stylesheet
+body {
+    display: block;
+    margin: 8px;
+}
+:host, :root {
+    --fa-font-solid: normal 900 1em / 1 "Font Awesome 6 Free";
+}
+:host, :root {
+    --fa-font-regular: normal 400 1em / 1 "Font Awesome 6 Free";
+}
+:host, :root {
+    --fa-font-brands: normal 400 1em / 1 "Font Awesome 6 Brands";
+}
